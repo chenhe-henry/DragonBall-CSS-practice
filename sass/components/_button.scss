@@ -1,0 +1,75 @@
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.4s;
+  padding: 2rem 4rem;
+  position: relative;
+  font-size: $default-font-size;
+
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    &::after {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* transition  is always in the initial state */
+    transition: all 0.4s;
+  }
+  &-white {
+    background-color: $color-white;
+    color: $color-grey;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &-animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* backwards means the initial state only happens when the animation starts */
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    display: inline-block;
+    font-size: $default-font-size;
+    color: $color-blue;
+    border-bottom: 1px solid $color-blue;
+    transition: all 0.2s;
+  }
+  &:hover {
+    background-color: $color-blue;
+    color: $color-white;
+    transform: translateY(-0.2rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+}
